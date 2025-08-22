@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="flex min-h-screen flex-col items-center bg-gray-100 p-6">
-      <h1 className="mb-6 text-4xl font-bold text-gray-800">
+      <h1 className="mb-6 text-4xl font-bold text-red-800">
         WebRTC Video Call
       </h1>
 
@@ -43,7 +43,7 @@ function App() {
         </div>
 
         <div className="flex items-center justify-center rounded-lg bg-gray-800 shadow-lg">
-          <p className="text-gray-400">Waiting for others...</p>
+          <p className="text-blue-400">Waiting for others...</p>
         </div>
       </div>
     </div>
