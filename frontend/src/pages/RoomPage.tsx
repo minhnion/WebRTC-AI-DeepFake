@@ -1,13 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { Spin, Typography } from 'antd';
-import { useWebRTC } from '../hooks/useWebRTC';
-import { VideoPlayer } from '../components/VideoPlayer';
+import { Spin, Typography } from "antd";
+import { useWebRTC } from "../hooks/useWebRTC";
+import { Route } from "../routes/room.$roomId.route";
+import { VideoPlayer } from "../components/VideoPlayer";
 
-export const Route = createFileRoute('/room/$roomId')({
-  component: RoomPage,
-});
-
-function RoomPage() {
+export const RoomPage = () => {
   const { roomId } = Route.useParams();
   const { myStream, peers } = useWebRTC(roomId!);
 
@@ -17,8 +13,10 @@ function RoomPage() {
 
   return (
     <div>
-      <Typography.Title level={2} className="mb-4">Room: {roomId}</Typography.Title>
-      
+      <Typography.Title level={2} className="mb-4">
+        Room: {roomId}
+      </Typography.Title>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <VideoPlayer
           name="You"
@@ -27,7 +25,7 @@ function RoomPage() {
           isFlipped
           captureFrames={true}
         />
-        
+
         {peers.map((peer) => (
           <VideoPlayer
             key={peer.id}
@@ -39,4 +37,4 @@ function RoomPage() {
       </div>
     </div>
   );
-}
+};

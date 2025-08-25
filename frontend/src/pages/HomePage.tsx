@@ -1,12 +1,8 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { Button, Card, Input, Space } from 'antd';
-import { useState } from 'react';
+import { useNavigate } from "@tanstack/react-router";
+import { Button, Card, Input, Space } from "antd";
+import { useState } from "react";
 
-export const Route = createFileRoute('/')({
-  component: HomePage,
-});
-
-function HomePage() {
+export const HomePage = ()  => {
   const [roomId, setRoomId] = useState('');
   const navigate = useNavigate();
 
