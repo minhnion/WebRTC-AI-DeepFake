@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+
+venv/
+.venv/
+env/
+ENV/
+
+
+.env
+
+.vscode/
+.idea/
+
+models_weights/*.pth
+models_weights/*.onnx
