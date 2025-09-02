@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  ai-be:
+    build:
+      context: ./AI-BE
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./AI-BE:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - ai-be
+    restart: unless-stopped
